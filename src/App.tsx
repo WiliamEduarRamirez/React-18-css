@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
 
+import ReactGa from 'react-ga';
 function App() {
+  useEffect(() => {
+    ReactGa.initialize('G-T42YDQSELB', {
+      testMode: true,
+      debug: true,
+    });
+    ReactGa.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <div className='sidebar'>Sidebar</div>
+      <div className='header'>Header</div>
+      <div className='realtors'>realtors</div>
+      <section className='features'></section>
+      <div className='story__picture'></div>
+      <div className='story__content'></div>
+      <section className='homes'></section>
+      <section className='gallery'></section>
+      <footer className='footer'></footer>
     </div>
   );
 }
